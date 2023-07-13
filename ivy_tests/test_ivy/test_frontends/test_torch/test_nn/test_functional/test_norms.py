@@ -85,7 +85,7 @@ def test_torch_batch_norm(
     eps=helpers.floats(min_value=1e-5, max_value=0.1),
     use_input_stats=st.booleans(),
 )
-def test_torch_instance_norm(
+def test_torch_norm(
     *,
     data,
     momentum,

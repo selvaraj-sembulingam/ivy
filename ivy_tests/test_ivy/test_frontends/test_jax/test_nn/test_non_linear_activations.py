@@ -1,8 +1,8 @@
 from hypothesis import strategies as st
 
 # local
-import ivy_tests.test_ivy.helpers as helpers
-from ivy_tests.test_ivy.helpers import handle_frontend_test
+import ivy_tests.test_jax_ivy.helpers as helpers
+from ivy_tests.test_jax_ivy.helpers import handle_frontend_test
 
 
 # Todo : turn on complex dtype activation tests once supported in all backends
@@ -14,21 +14,21 @@ from ivy_tests.test_ivy.helpers import handle_frontend_test
         small_abs_safety_factor=3,
         safety_factor_scale="linear",
     ),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_relu(
+def test_jax_relu(
     *,
     dtype_and_x,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtype, x = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtype,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         x=x[0],
@@ -43,21 +43,21 @@ def test_relu(
         small_abs_safety_factor=2,
         safety_factor_scale="linear",
     ),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_relu6(
+def test_jax_relu6(
     *,
     dtype_and_x,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtype, x = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtype,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         x=x[0],
@@ -72,21 +72,21 @@ def test_relu6(
         small_abs_safety_factor=2,
         safety_factor_scale="linear",
     ),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_soft_sign(
+def test_jax_soft_sign(
     *,
     dtype_and_x,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtype, x = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtype,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         x=x[0],
@@ -101,21 +101,21 @@ def test_soft_sign(
         small_abs_safety_factor=2,
         safety_factor_scale="linear",
     ),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_silu(
+def test_jax_silu(
     *,
     dtype_and_x,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtype, x = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtype,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         x=x[0],
@@ -131,24 +131,24 @@ def test_silu(
         safety_factor_scale="linear",
     ),
     negative_slope=helpers.floats(min_value=0.0, max_value=1.0),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_leaky_relu(
+def test_jax_leaky_relu(
     *,
     dtype_and_x,
     negative_slope,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtype, x = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtype,
         rtol=1e-01,
         atol=1e-01,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         x=x[0],
@@ -165,22 +165,22 @@ def test_leaky_relu(
         safety_factor_scale="log",
     ),
     approximate=st.booleans(),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_gelu(
+def test_jax_gelu(
     *,
     dtype_and_x,
     approximate,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtype, x = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtype,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         rtol=1e-02,
@@ -198,21 +198,21 @@ def test_gelu(
         small_abs_safety_factor=2,
         safety_factor_scale="linear",
     ),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_sigmoid(
+def test_jax_sigmoid(
     *,
     dtype_and_x,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtype, x = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtype,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         x=x[0],
@@ -241,22 +241,22 @@ def _dtype_indices_classes_axis(draw):
     fn_tree="jax.nn.one_hot",
     dtype_indices_classes_axis=_dtype_indices_classes_axis(),
     dtype=helpers.get_dtypes("float", full=False),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_one_hot(
+def test_jax_one_hot(
     *,
     dtype_indices_classes_axis,
     dtype,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtype, indices, num_classes, axis = dtype_indices_classes_axis
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtype,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         rtol=1e-02,
@@ -276,22 +276,22 @@ def test_one_hot(
         force_int_axis=True,
         valid_axis=True,
     ),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_softmax(
+def test_jax_softmax(
     *,
     dtype_x_axis,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     x_dtype, x, axis = dtype_x_axis
 
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=x_dtype,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         rtol=1e-02,
@@ -309,21 +309,21 @@ def test_softmax(
         small_abs_safety_factor=2,
         safety_factor_scale="linear",
     ),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_softplus(
+def test_jax_softplus(
     *,
     dtype_and_x,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtype, x = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtype,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         x=x[0],
@@ -340,23 +340,23 @@ def test_softplus(
         small_abs_safety_factor=8,
         safety_factor_scale="log",
     ),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_log_sigmoid(
+def test_jax_log_sigmoid(
     *,
     dtype_and_x,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtype, x = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtype,
         rtol=1e-02,
         atol=1e-02,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         x=x[0],
@@ -374,22 +374,22 @@ def test_log_sigmoid(
         min_num_dims=1,
     ),
     axis=helpers.ints(min_value=-1, max_value=0),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_log_softmax(
+def test_jax_log_softmax(
     *,
     dtype_and_x,
     axis,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtype, x = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtype,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         rtol=1e-02,
@@ -413,22 +413,22 @@ def test_log_softmax(
         max_dim_size=4,
     ),
     axis=helpers.ints(min_value=-1, max_value=0),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_glu(
+def test_jax_glu(
     *,
     dtype_and_x,
     axis,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtype, x = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtype,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         rtol=1e-01,
@@ -454,27 +454,27 @@ def test_glu(
         max_value=1,
     ),
     where=st.none(),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_normalize(
+def test_jax_normalize(
     *,
     dtype_and_x,
     axis,
     epsilon,
     where,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtypes, xs = dtype_and_x
 
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtypes,
         rtol=1e-02,
         atol=1e-02,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         x=xs[0],
@@ -494,22 +494,22 @@ def test_normalize(
         small_abs_safety_factor=2,
         safety_factor_scale="linear",
     ),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_hard_tanh(
+def test_jax_hard_tanh(
     *,
     dtype_and_x,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     # TODO: enable this test for all valid dtypes as jax.nn.hard_tanh supports
     input_dtype, x = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtype,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         x=x[0],
@@ -525,22 +525,22 @@ def test_hard_tanh(
         safety_factor_scale="linear",
     ),
     alpha=helpers.floats(min_value=0.01, max_value=1),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_celu(
+def test_jax_celu(
     *,
     dtype_and_x,
     alpha,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtypes, xs = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtypes,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         x=xs[0],
@@ -559,21 +559,21 @@ def test_celu(
         num_arrays=2,
         shared_dtype=True,
     ),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_elu(
+def test_jax_elu(
     *,
     dtype_and_x,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtypes, xs = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtypes,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         x=xs[0],
@@ -594,24 +594,24 @@ def test_elu(
     axis=st.just(None),
     keepdims=st.booleans(),
     return_sign=st.booleans(),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_logsumexp(
+def test_jax_logsumexp(
     *,
     dtype_and_x,
     axis,
     keepdims,
     return_sign,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtypes, xs = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtypes,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         a=xs[0],
@@ -630,21 +630,21 @@ def test_logsumexp(
         small_abs_safety_factor=2,
         safety_factor_scale="linear",
     ),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_swish(
+def test_jax_swish(
     *,
     dtype_and_x,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtype, x = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtype,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         x=x[0],
@@ -659,23 +659,23 @@ def test_swish(
         max_value=10,
         safety_factor_scale="linear",
     ),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_hard_swish(
+def test_jax_hard_swish(
     *,
     dtype_and_x,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtype, x = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtype,
         rtol=1e-02,
         atol=1e-02,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         x=x[0],
@@ -689,21 +689,21 @@ def test_hard_swish(
         large_abs_safety_factor=2,
         small_abs_safety_factor=2,
     ),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_hard_silu(
+def test_jax_hard_silu(
     *,
     dtype_and_x,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtypes, xs = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtypes,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         x=xs[0],
@@ -717,21 +717,21 @@ def test_hard_silu(
         large_abs_safety_factor=2,
         small_abs_safety_factor=2,
     ),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_hard_sigmoid(
+def test_jax_hard_sigmoid(
     *,
     dtype_and_x,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtypes, xs = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtypes,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         x=xs[0],
@@ -746,21 +746,21 @@ def test_hard_sigmoid(
         small_abs_safety_factor=2,
         safety_factor_scale="log",
     ),
-    test_with_out=st.just(False),
+    test_jax_with_out=st.just(False),
 )
-def test_selu(
+def test_jax_selu(
     *,
     dtype_and_x,
-    test_flags,
+    test_jax_flags,
     on_device,
     fn_tree,
     frontend,
 ):
     input_dtype, x = dtype_and_x
-    helpers.test_frontend_function(
+    helpers.test_jax_frontend_function(
         input_dtypes=input_dtype,
         frontend=frontend,
-        test_flags=test_flags,
+        test_jax_flags=test_jax_flags,
         fn_tree=fn_tree,
         on_device=on_device,
         rtol=1e-02,

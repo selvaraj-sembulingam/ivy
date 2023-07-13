@@ -1,5 +1,5 @@
 from hypothesis import strategies as st
-from ivy_tests.test_ivy.test_frontends.test_numpy.test_creation_routines.test_from_shape_or_value import (  # noqa : E501
+from ivy_tests.test_ivy.test_frontends.test_jax.test_creation_routines.test_from_shape_or_value import (  # noqa : E501
     _input_fill_and_dtype,
 )
 
@@ -342,7 +342,7 @@ def test_jax_eye(
     k=helpers.ints(min_value=-10, max_value=10),
     test_with_out=st.just(False),
 )
-def test_numpy_triu(
+def test_jax_triu(
     dtype_and_x,
     k,
     test_flags,

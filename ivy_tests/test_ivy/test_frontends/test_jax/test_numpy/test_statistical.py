@@ -5,9 +5,9 @@ import numpy as np
 
 # local
 import ivy
-import ivy_tests.test_ivy.test_frontends.test_numpy.helpers as np_frontend_helpers
+import ivy_tests.test_ivy.test_frontends.test_jax.helpers as np_frontend_helpers
 import ivy_tests.test_ivy.helpers as helpers
-import ivy_tests.test_ivy.test_frontends.test_numpy.helpers as np_helpers
+import ivy_tests.test_ivy.test_frontends.test_jax.helpers as np_helpers
 from ivy_tests.test_ivy.helpers import handle_frontend_test
 from ivy_tests.test_ivy.test_functional.test_core.test_statistical import (
     _statistical_dtype_values,
@@ -481,7 +481,7 @@ def test_jax_average(
     keepdims=st.booleans(),
     where=np_helpers.where(),
 )
-def test_numpy_nanmax(
+def test_jax_nanmax(
     dtype_x_axis,
     frontend,
     test_flags,
@@ -532,7 +532,7 @@ def test_numpy_nanmax(
     keepdims=st.booleans(),
     where=np_helpers.where(),
 )
-def test_numpy_nanmin(
+def test_jax_nanmin(
     dtype_x_axis,
     frontend,
     test_flags,
@@ -970,7 +970,8 @@ def test_jax_nanmedian(
     test_flags,
 ):
     input_dtype, x, axis = dtype_x_axis
-    # TODO: overwrite as a boolean when there's a way around jax.numpy.nanquantile does not
+    # TODO: overwrite as a boolean when \
+    #           there's a way around jax.numpy.nanquantile does not
     #  support overwrite_input=True.
     helpers.test_frontend_function(
         input_dtypes=input_dtype,
