@@ -3,9 +3,9 @@ Design
 
 This section is aimed at general users, who would like to learn how to use Ivy, and are less concerned about how it all works under the hood 🔧
 
-The :ref:`Deep Dive` section is more targeted at potential contributors, and at users who would like to dive deeper into the weeds of the framework🌱, and gain a better understanding of what is actually going on behind the scenes 🎬
+The :ref:`overview/deep_dive:Deep Dive` section is more targeted at potential contributors, and at users who would like to dive deeper into the weeds of the framework🌱, and gain a better understanding of what is actually going on behind the scenes 🎬
 
-If that sounds like you, feel free to check out the :ref:`Deep Dive` section after you've gone through the higher level overview which is covered in this *design* section!
+If that sounds like you, feel free to check out the :ref:`overview/deep_dive:Deep Dive` section after you've gone through the higher level overview which is covered in this *design* section!
 
 | So, starting off with our higher level *design* section, Ivy can fulfill two distinct purposes:
 |
@@ -23,16 +23,16 @@ If that sounds like you, feel free to check out the :ref:`Deep Dive` section aft
    :align: center
    :width: 100%
 
-| (a) :ref:`Building Blocks`
+| (a) :ref:`docs/overview/design/building_blocks:Building Blocks`
 | back-end functional APIs ✅
 | Ivy functional API ✅
 | Framework Handler ✅
 | Ivy Compiler 🚧
 |
-| (b) :ref:`Ivy as a Transpiler`
+| (b) :ref:`docs/overview/design/ivy_as_a_transpiler:Ivy as a Transpiler`
 | front-end functional APIs 🚧
 |
-| (c) :ref:`Ivy as a Framework`
+| (c) :ref:`docs/overview/design/ivy_as_a_framework:Ivy as a Framework`
 | Ivy stateful API ✅
 | Ivy Container ✅
 | Ivy Array ✅

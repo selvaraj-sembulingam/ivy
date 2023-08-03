@@ -1,7 +1,7 @@
 Extensions
 ==========
 
-| (a) :ref:`Applied Libraries` ✅
+| (a) :ref:`docs/overview/extensions/applied_libraries:Applied Libraries` ✅
 | Ivy libraries in mechanics, vision, robotics, memory and other areas
 |
 | (b) **Builder [page coming soon!]** ✅

@@ -1,13 +1,13 @@
 Background
 ==========
 
-| (a) :ref:`ML Explosion`
+| (a) :ref:`overview/background/ml_explosion:ML Explosion`
 | A huge number of ML tools have exploded onto the scene!
 |
-| (b) :ref:`Why Unify?`
+| (b) :ref:`overview/background/why_unify:Why Unify?`
 | Why should we try to unify them?
 |
-| (c) :ref:`Standardization`
+| (c) :ref:`overview/background/standardization:Standardization`
 | We’re collaborating with The `Consortium for Python Data API Standards <https://data-apis.org>`_
 
 .. toctree::

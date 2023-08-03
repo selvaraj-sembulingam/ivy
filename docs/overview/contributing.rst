@@ -18,22 +18,22 @@ The contributor guide is split into the sections below, it's best to go from sta
 | (a) `Setting Up <https://unify.ai/docs/ivy/overview/contributing/setting_up.html>`_
 | Building the right environment 🏛️
 |
-| (b) :ref:`The Basics`
+| (b) :ref:`overview/contributing/the_basics:The Basics`
 | Managing your fork 🇾, creating issues ⭕, and creating pull-requests ⬆️
 |
-| (c) :ref:`Building the Docs`
+| (c) :ref:`overview/contributing/building_the_docs:Building the Docs`
 | How to build the documentation locally 🏗️
 |
-| (d) :ref:`Deep Dive`
+| (d) :ref:`overview/deep_dive:Deep Dive`
 | Take a deep dive into the codebase 🤿
 |
-| (e) :ref:`Open Tasks`
+| (e) :ref:`overview/contributing/open_tasks:Open Tasks`
 | See where you can help us out! 🙋
 |
-| (f) :ref:`Applied Libraries`
+| (f) :ref:`overview/contributing/applied_libraries:Applied Libraries`
 | Getting started with our applied libraries! 📚
 | 
-| (g) :ref:`Helpful Resources`
+| (g) :ref:`overview/contributing/helpful_resources:Helpful Resources`
 | Resources you would find useful when learning Ivy 📖
 
 .. toctree::
